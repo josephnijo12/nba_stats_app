@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Player</h1>
+<form action="/players" method="POST">
+  <label for="">Name:</label>
+  <input type="text" name="name">
+
+  <label for="">PPG:</label>
+  <input type="text" name="PPG">
+
+  <label for="">RPG:</label>
+  <input type="text" name="RPG">
+
+  <label for="">APG</label>
+  <input type="text" name="APG">
+
+  <label for="">Championship:</label>
+  <input type="text" name="championship">
+
+  <button>Add player</button>
+</form>
+{% endblock %}

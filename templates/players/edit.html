@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Edit player</h1>
+    <form action="/players/{{ player['id'] }}" method="POST">
+        <label for="">Image URL:</label>
+        <input type="text" name="image_url" value="{{ player['image_url'] }}">
+
+        <label for="">Name:</label>
+        <input type="text" name="name" value="{{ player['name'] }}">
+
+        <label for="">PPG:</label>
+        <input type="text" name="PPG " value="{{ player['PPG'] }}">
+
+        <label for="">RPG:</label>
+        <input type="text" name="RPG" value="{{ player['RPG'] }}">
+
+        <label for="">APG:</label>
+        <input type="text" name="APG" value="{{ player['APG'] }}">
+
+        <label for="">Championship:</label>
+        <input type="text" name="championship" value="{{ player['championship'] }}">
+
+        <button>Update player</button>
+    </form>
+</body>
+</html>

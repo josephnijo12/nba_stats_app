@@ -1,0 +1,51 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>NBA Top 5 Players</h1>
+
+    {% if current_user() %}
+    <h3>Create Your Top 5 NBA Players {{ current_user()['first_name'] }}</h3>
+
+    <section class="controls">
+        <form action="/sessions/delete" method="POST">
+            <button>Log out</button>
+        </form>
+
+        <a href="/players/new">Add Player</a>
+    </section>
+
+    <section class="players">
+        {% for player in players: %}
+        <section class="player">
+            <header>
+                <h2>{{ player['name'] }}</h2>
+
+                <section class="controls">
+                    <a href="/players/{{ player['id'] }}/edit">Edit</a>
+
+                    <form action="/players/{{ player['id'] }}/delete" method="POST">
+                        <button>Delete</button>
+                    </form>
+                </section>
+            </header>
+
+            <img src="{{ player['image_url'] }}" alt="">
+            <p>PPG: {{ player['PPG'] }}</p>
+            <p>RPG: {{ player['RPG'] }}</p>
+            <p>APG: {{ player['APG'] }}</p>
+            <p>Championship: {{ player['championship'] }}</p>
+        </section>
+        {% endfor %}
+    </section>
+    {% else %}
+    <a href="/users/new">Sign up</a>
+    <a href="/sessions/new">Log in</a>
+    {% endif %}
+</body>
+</html>
