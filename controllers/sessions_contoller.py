@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, session
-from models.user import find_user_by_email
+from models.users import find_user_by_email
 import bcrypt
 def new():
   return render_template('sessions/new.html')
@@ -14,9 +14,9 @@ def create():
     valid_password = bcrypt.checkpw(password.encode(), user['password_digest'].encode())
     if valid_password:
         session['user_id'] = user['id']
-    return redirect('/')
+        return redirect('/')
     else: 
-    return redirect('/sessions/new')
+        return redirect('/sessions/new')
 
 def delete():
   session.clear()

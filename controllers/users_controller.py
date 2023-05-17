@@ -8,5 +8,7 @@ def create():
   first_name = request.form.get('first_name')
   last_name = request.form.get('last_name')
   email = request.form.get('email')
-  create_user(first_name, last_name, email)
+  password = request.form.get('password')
+
+  create_user(first_name, last_name, email, password)
   return redirect('/')

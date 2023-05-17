@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Comments</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Player Comments</h1>
+
+    {% for player_name, comments in player_comment_map.items() %}
+    <div class="player-card">
+        <h2>Player Name: {{ player_name }}</h2>
+        <ul>
+            {% for comment in comments %}
+            <li>{{ comment }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>

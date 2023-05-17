@@ -1,5 +1,5 @@
 from flask import Blueprint
-from controllers.sessions_controller import new, create, delete
+from controllers.sessions_contoller import new, create, delete
 
 sessions_routes = Blueprint('sessions_routes', __name__)
 
