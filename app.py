@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 import os
 from flask import Flask, redirect
 from routes.players_routes import players_routes
@@ -10,6 +12,7 @@ SECRET_KEY = os.environ.get("FLASK_SECRET_KEY", "ghjdfghdg")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
+
 
 
 app.register_blueprint(players_routes, url_prefix='/players')
